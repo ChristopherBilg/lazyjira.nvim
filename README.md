@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 Run the [`lazyjira`](https://github.com/textfuel/lazyjira) TUI in a floating
-window inside Neovim — a single reusable instance you toggle open and closed.
+window inside Neovim, a single reusable instance you toggle open and closed.
 Zero runtime dependencies.
 
 Inspired by [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) and
@@ -38,7 +38,7 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ## Usage
 
-- `:LazyJira` — toggle the window.
+- `:LazyJira` toggles the window.
 - Lua API: `require("lazyjira").open() / .close() / .toggle()`.
 
 Hiding the window keeps the `lazyjira` process running; pressing `q` inside the

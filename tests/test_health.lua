@@ -9,7 +9,7 @@ T["checkhealth lazyjira reports the plugin's own diagnostics"] = function()
   -- Section is present...
   eq(report:find("lazyjira", 1, true) ~= nil, true)
   -- ...and it contains OUR Neovim-version diagnostic, which the "no provider
-  -- found" message does not — so this genuinely fails without health.lua.
+  -- found" message does not, so this genuinely fails without health.lua.
   eq(report:find("Neovim", 1, true) ~= nil, true)
 end
 

@@ -3,7 +3,7 @@ local terminal = require("lazyjira.terminal")
 
 local M = {}
 
----Apply user configuration. Optional — the plugin works with defaults.
+---Apply user configuration. Optional, since the plugin works with defaults.
 ---@param opts? lazyjira.Config
 function M.setup(opts)
   config.merge(opts)

@@ -1,0 +1,95 @@
+*lazyjira.txt*            Run the lazyjira TUI in a floating window
+
+==============================================================================
+CONTENTS                                                    *lazyjira-contents*
+
+  1. Introduction ......................... |lazyjira-introduction|
+  2. Requirements ......................... |lazyjira-requirements|
+  3. Setup ................................ |lazyjira-setup|
+  4. Configuration ........................ |lazyjira-configuration|
+  5. Commands ............................. |lazyjira-commands|
+  6. API .................................. |lazyjira-api|
+  7. Health ............................... |lazyjira-health|
+
+==============================================================================
+1. INTRODUCTION                                         *lazyjira-introduction*
+
+lazyjira.nvim runs the `lazyjira` terminal UI (https://github.com/textfuel/lazyjira)
+in a floating window inside Neovim, managed as a single reusable instance you
+toggle open and closed. Hiding the window keeps the process running, so your
+place in the TUI is preserved.
+
+It has no runtime dependencies.
+
+==============================================================================
+2. REQUIREMENTS                                         *lazyjira-requirements*
+
+- Neovim >= 0.11
+- The `lazyjira` executable in your PATH
+
+Run |:checkhealth| lazyjira to verify your setup.
+
+==============================================================================
+3. SETUP                                                       *lazyjira-setup*
+
+The plugin works with zero configuration; calling setup() is optional and only
+needed to override defaults: >lua
+
+    require("lazyjira").setup({
+      -- options, see |lazyjira-configuration|
+    })
+<
+==============================================================================
+4. CONFIGURATION                                       *lazyjira-configuration*
+
+Defaults: >lua
+
+    {
+      cmd = "lazyjira",        -- string|string[]: command to launch
+      args = {},                -- string[]: extra args, e.g. { "--demo" }
+      window = {
+        width = 0.9,           -- 0<n<=1 -> fraction of editor; n>1 -> columns
+        height = 0.9,          -- same semantics for rows
+        border = "rounded",    -- any nvim_open_win() border value
+        relative = "editor",
+        title = " lazyjira ",
+        title_pos = "center",
+        zindex = 50,
+        winblend = 0,
+      },
+      start_insert = true,      -- enter terminal-mode on open
+      keymaps = {
+        close = false,          -- buffer-local "hide" map, or false to disable
+      },
+      on_open = nil,            -- fun(term) called after the window opens
+      on_exit = nil,            -- fun(code) called when lazyjira exits
+    }
+<
+==============================================================================
+5. COMMANDS                                                 *lazyjira-commands*
+
+                                                                     *:LazyJira*
+:LazyJira        Toggle the lazyjira window.
+
+==============================================================================
+6. API                                                           *lazyjira-api*
+
+                                                          *lazyjira.setup()*
+require("lazyjira").setup({opts})   Apply configuration (optional).
+
+                                                           *lazyjira.open()*
+require("lazyjira").open()          Open or reveal the window.
+
+                                                          *lazyjira.close()*
+require("lazyjira").close()         Hide the window (process keeps running).
+
+                                                         *lazyjira.toggle()*
+require("lazyjira").toggle()        Toggle the window.
+
+==============================================================================
+7. HEALTH                                                     *lazyjira-health*
+
+Run |:checkhealth| lazyjira to check the Neovim version and that `lazyjira` is
+installed and on your PATH.
+
+vim:tw=78:ts=8:ft=help:norl:

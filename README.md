@@ -10,6 +10,8 @@ Zero runtime dependencies.
 Inspired by [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) and
 [lazydocker.nvim](https://github.com/crnvl96/lazydocker.nvim).
 
+![Screenshot of lazyjira.nvim inside of neovim](/screenshot.png)
+
 ## Requirements
 
 - Neovim >= 0.11

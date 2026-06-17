@@ -5,7 +5,10 @@ local M = {}
 ---@param cmd string|string[]
 ---@return string
 local function cmd_name(cmd)
-  return type(cmd) == "table" and cmd[1] or cmd
+  if type(cmd) == "table" then
+    return cmd[1]
+  end
+  return cmd
 end
 
 function M.check()

@@ -44,6 +44,7 @@ T["open() with a missing binary notifies and does not open"] = function()
   config.options.cmd = "definitely-not-a-real-binary-xyz"
   local notified = false
   local original = vim.notify
+  ---@diagnostic disable-next-line: duplicate-set-field
   vim.notify = function()
     notified = true
   end

@@ -68,7 +68,10 @@ end
 ---@param cfg lazyjira.Config
 local function validate(cfg)
   local cmd_type = type(cfg.cmd)
-  assert(cmd_type == "string" or cmd_type == "table", "lazyjira: `cmd` must be a string or string[]")
+  assert(
+    cmd_type == "string" or cmd_type == "table",
+    "lazyjira: `cmd` must be a string or string[]"
+  )
   assert(type(cfg.args) == "table", "lazyjira: `args` must be a table")
   assert(type(cfg.window) == "table", "lazyjira: `window` must be a table")
   assert(type(cfg.window.width) == "number", "lazyjira: `window.width` must be a number")

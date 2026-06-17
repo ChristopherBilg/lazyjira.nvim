@@ -56,7 +56,10 @@ end
 ---@return string
 local function cmd_name()
   local cmd = config.options.cmd
-  return type(cmd) == "table" and cmd[1] or cmd
+  if type(cmd) == "table" then
+    return cmd[1]
+  end
+  return cmd
 end
 
 ---@return string[]

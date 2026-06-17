@@ -38,6 +38,7 @@ end
 
 T["merge() rejects a bad cmd type"] = function()
   expect_error(function()
+    ---@diagnostic disable-next-line: assign-type-mismatch
     config.merge({ cmd = 42 })
   end)
 end
@@ -45,6 +46,7 @@ end
 T["merge() warns on unknown top-level keys"] = function()
   local warned = false
   local original = vim.notify
+  ---@diagnostic disable-next-line: duplicate-set-field
   vim.notify = function(msg, level)
     if level == vim.log.levels.WARN and tostring(msg):find("unknown config key") then
       warned = true
